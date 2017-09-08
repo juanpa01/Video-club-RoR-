@@ -15,7 +15,6 @@ class TypeMoviesController < ApplicationController
   # GET /type_movies/new
   def new
     @type_movie = TypeMovie.new
-    @movie = Movie.new
   end
 
   # GET /type_movies/1/edit

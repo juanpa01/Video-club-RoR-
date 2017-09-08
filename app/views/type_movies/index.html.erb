@@ -2,7 +2,7 @@
 
 <h1>Type Movies</h1>
 
-<table>
+<table class="striped">
   <thead>
     <tr>
       <th>Category</th>
@@ -13,10 +13,9 @@
   <tbody>
     <% @type_movies.each do |type_movie| %>
       <tr>
-        <td><%= type_movie.category %></td>
-        <td><%= link_to 'Show', type_movie %></td>
-        <td><%= link_to 'Edit', edit_type_movie_path(type_movie) %></td>
-        <td><%= link_to 'Destroy', type_movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to type_movie.category, type_movie, class: "black-text" %></td>
+        <td><%= link_to 'Editar', edit_type_movie_path(type_movie), class: "black-text"%></td>
+        <td><%= link_to 'Eliminar', type_movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +23,4 @@
 
 <br>
 
-<%= link_to 'New Type Movie', new_type_movie_path %>
+<%= link_to 'New Type Movie', new_type_movie_path,  class: "waves-effect waves-light btn " %>

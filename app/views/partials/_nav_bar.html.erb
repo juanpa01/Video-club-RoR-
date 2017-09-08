@@ -3,6 +3,8 @@
     <a href="http://localhost:3000/" class="brand-logo">Logo</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <% if user_signed_in? %>
+        <li><%= link_to "Categoria", type_movies_path %></li>
+        <li><%= link_to "Actor", actors_path %>=</li>
         <li><%= link_to "Peliculas", movies_path %></li>
         <li><%= link_to "Cerrar sesion", destroy_user_session_path, method: :delete%></li>
       <% else %>

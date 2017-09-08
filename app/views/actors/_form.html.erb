@@ -10,18 +10,15 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :actor_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :birth_date %>
-    <%= form.date_select :birth_date, id: :actor_birth_date %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="row center">
+    <div class="field col s4 offset-s4 ">
+      <%= form.label :Nombre %>
+      <%= form.text_field :name, id: :actor_name %>
+      <%= form.label :Fehca_de_nacimiento %>
+      <%= form.date_field :birth_date,start_year: 1990, id: :actor_birth_date, class: "datepicker" %>
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    </div>
   </div>
 <% end %>

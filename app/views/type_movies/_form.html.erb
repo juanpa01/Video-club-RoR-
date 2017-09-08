@@ -1,5 +1,11 @@
-<%= form_for(@type_movie) do |form| %>
-  <%= form.select :id, options_from_collection_for_select(TypeMovie.all, :id, :category) %>
+<%= form_with(model: type_movie, local: true) do |form| %>
+  <div class="row">
+    <div class="col s4 offset-s4">
+      <%= form.text_field :category, placeholder: "Categoria", class:"field validate", type: "text" %>
+      <%= form.submit "Guardar", class: "waves-effect waves-light btn " %>
+    </div>
+  </div>
+
   <% if @type_movie.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@type_movie.errors.count, "error") %> prohibited this type_movie from being saved:</h2>

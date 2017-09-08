@@ -7,7 +7,6 @@ class MoviesController < ApplicationController
 
   def new
     @movie = Movie.new
-    #@actors = Actor.all
   end
 
   def create
