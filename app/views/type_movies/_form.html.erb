@@ -1,0 +1,14 @@
+<%= form_for(@type_movie) do |form| %>
+  <%= form.select :id, options_from_collection_for_select(TypeMovie.all, :id, :category) %>
+  <% if @type_movie.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@type_movie.errors.count, "error") %> prohibited this type_movie from being saved:</h2>
+      <ul>
+      <% @type_movie.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<% end %>

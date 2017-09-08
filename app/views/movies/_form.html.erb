@@ -1,0 +1,19 @@
+<%= form_for(@movie)  do |f| %>
+  <div class="row">
+      <div class="row">
+        <div class="col s6">
+          <%= f.text_field :title, placeholder: "Titulo de la pelicula", class:"field validate", type: "text" %>
+          <%= collection_select(:movie, :type_movie_id, TypeMovie.all, :id, :category, {}, {:multiple => false}) %>
+          <%= f.collection_check_boxes :actors,  Actor.all, :id, :name %>
+        </div>
+      </div>
+
+      <%= f.submit "Guardar", class: "waves-effect waves-light btn " %>
+  </div>
+
+  <%  @movie.errors.full_messages.each do |mesage| %>
+    <h7 >
+      <%= mesage %>
+    </h7>
+  <% end %>
+<% end %>

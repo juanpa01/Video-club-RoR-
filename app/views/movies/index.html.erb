@@ -1,0 +1,11 @@
+<% @movies.each do |movie| %>
+  <div class="row" >
+    <h5><%= link_to movie.title, movie, class: "black-text"%> - <%= TypeMovie.find(movie.type_movie_id).category %></h5>
+    <% movie.actors.each do |actor| %>
+      <h6><%= actor.name %></h6>
+    <% end %>
+    <h7><%= link_to "Editar", edit_movie_path(movie), class: "black-text"%></h7>
+    <h7><%= link_to "Eliminar", movie, method: :delete%></h7>
+  </div>
+<% end %>
+<%= link_to "Nueva pelicula", new_movie_path(@movie), class: "waves-effect waves-light btn " %>

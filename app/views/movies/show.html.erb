@@ -1,0 +1,7 @@
+<p class="flow-text"><%= @movie.title%></p>
+<% @movie.actors.each do |actor|  %>
+  <div>
+    <%= actor.name %>
+  </div>
+<% end %>
+<%=  link_to "Retroceder", movies_path, class: "waves-effect waves-light btn "%>
