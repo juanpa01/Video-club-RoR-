@@ -36,7 +36,7 @@ class MoviesController < ApplicationController
   end
 
   def destroy
-    @movie.delete
+    @movie.destroy
     redirect_to movies_path
   end
 
@@ -47,7 +47,7 @@ class MoviesController < ApplicationController
   end
 
   def movie_params
-    params.require(:movie).permit(:title, :type_movie_id, :actors => [])
+    params.require(:movie).permit(:title, :type_movie_id, :description, :actors => [])
   end
 
 end

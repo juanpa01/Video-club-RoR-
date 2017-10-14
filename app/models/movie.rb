@@ -1,7 +1,7 @@
 class Movie < ApplicationRecord
   validates :title, presence: true, uniqueness: true;
   has_many :type_movies
-  has_many :has_actors
+  has_many :has_actors, :dependent => :destroy
   has_many :actors, through: :has_actors
   after_create :save_actors
 

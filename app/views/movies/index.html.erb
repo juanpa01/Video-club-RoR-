@@ -1,11 +1,30 @@
-<% @movies.each do |movie| %>
-  <div class="row" >
-    <h5><%= link_to movie.title, movie, class: "black-text"%> - <%= TypeMovie.find(movie.type_movie_id).category %></h5>
-    <% movie.actors.each do |actor| %>
-      <h6><%= actor.name %></h6>
-    <% end %>
-    <h7><%= link_to "Editar", edit_movie_path(movie), class: "black-text"%></h7>
-    <h7><%= link_to "Eliminar", movie, method: :delete%></h7>
+<div class="container">
+<div class="row">
+<% @movies.each_with_index do |movie, index| %>
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="..." alt="Card image cap">
+    <div class="card-body ">
+      <h4 class="card-title"><%=  movie.title%></h4>
+      <%= movie.description%><br><br>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><p class="card-text">
+          <h6 class="card-subtitle mb-2 text-muted">Categoria :</h6>
+          <%= TypeMovie.find(movie.type_movie_id).category%> <br>
+        </li>
+        <li class="list-group-item"><p class="card-text">
+          <h6 class="card-subtitle mb-2 text-muted">Reparto :</h6>
+          <% movie.actors.each do |actor| %>
+            <%= actor.name %><br>
+          <% end %>
+          </li>
+        </ul><br>
+      <%= link_to "Mas informacion", movie_path(movie), class:"btn btn-primary "%><br><br>
+      <a><%= link_to "Editar", edit_movie_path(movie), class:"card-link"%></a>
+      <a><%= link_to "Eliminar", movie, method: :delete, class:"card-link"%></a>
+    </div>
   </div>
+
 <% end %>
+  </div>
+</div>
 <%= link_to "Nueva pelicula", new_movie_path(@movie), class: "waves-effect waves-light btn " %>

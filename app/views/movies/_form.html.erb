@@ -1,19 +1,30 @@
-<%= form_for(@movie)  do |f| %>
-  <div class="row">
-      <div class="row">
-        <div class="col s6">
-          <%= f.text_field :title, placeholder: "Titulo de la pelicula", class:"field validate", type: "text" %>
-          <%= collection_select(:movie, :type_movie_id, TypeMovie.all, :id, :category, {}, {:multiple => false}) %>
-          <%= f.collection_check_boxes :actors,  Actor.all, :id, :name %>
-        </div>
+<div class="container">
+  <div class="demo">
+    <%= form_for(@movie)  do |f| %>
+      <br><br>
+      <%= f.label :Titulo_de_la_pelicula %><br>
+      <%= f.text_field :title, type: "text", class: "form-control", id: "form1", type: "text"%>
+      <br><br>
+      <div class="form-group">
+      <%= f.label :Descripcion%><br>
+      <%= f.text_area(:description, size: "50x5", class: "text-area")%>
       </div>
-
-      <%= f.submit "Guardar", class: "waves-effect waves-light btn " %>
+      <br><br>
+      <label>Categoria</label><br>
+      <div class="mdl-selectfield">
+        <%= collection_select(:movie, :type_movie_id, TypeMovie.all, :id, :category, {:multiple => false}, { class:"browser-default "})%><br><br>
+      </div>
+      <div class=" col-4 checkbox-list ">
+        <%= f.collection_check_boxes(:actors,  Actor.all, :id, :name, {}, {}) %>
+      </div>
+      <div class="col-4 text-center">
+        <%= f.submit "Guardar"%>
+      </div>
+      <%  @movie.errors.full_messages.each do |mesage| %>
+        <h7 >
+          <%= mesage %>
+        </h7>
+        <% end %>
+        <% end %>
   </div>
-
-  <%  @movie.errors.full_messages.each do |mesage| %>
-    <h7 >
-      <%= mesage %>
-    </h7>
-  <% end %>
-<% end %>
+</div>

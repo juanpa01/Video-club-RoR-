@@ -5,11 +5,12 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+#bootstrap
+gem 'bootstrap', '~> 4.0.0.beta' 
+
 #user
 gem 'devise'
 gem 'jquery-rails'
-#materialize
-gem 'materialize-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
 # Use sqlite3 as the database for Active Record

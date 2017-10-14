@@ -1,21 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Type Movies</h1>
-
-<table class="striped">
+<h1>Categorias</h1><br>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Category</th>
-      <th colspan="3"></th>
+      <th>#</th>
+      <th>Categoria</th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
-
   <tbody>
-    <% @type_movies.each do |type_movie| %>
+    <% @type_movies.each_with_index do |type_movie, index| %>
       <tr>
-        <td><%= link_to type_movie.category, type_movie, class: "black-text" %></td>
-        <td><%= link_to 'Editar', edit_type_movie_path(type_movie), class: "black-text"%></td>
-        <td><%= link_to 'Eliminar', type_movie, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th scope="row"><%= index+1 %></th>
+        <td><strong><%=type_movie.category%></strong></td>
+        <td><%= link_to 'Editar', edit_type_movie_path(type_movie)%></td>
+        <td><%= link_to 'Eliminar', type_movie, method: :delete, data: { confirm: 'Seguro que quieres eliminar esta categoria?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -23,4 +24,4 @@
 
 <br>
 
-<%= link_to 'New Type Movie', new_type_movie_path,  class: "waves-effect waves-light btn " %>
+<%= link_to 'New Type Movie', new_type_movie_path,  type:"button", class:"btn btn-outline-success" %>

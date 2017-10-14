@@ -1,3 +1,84 @@
 // Place all the styles related to the movies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//movies/new
+
+
+
+
+$color-black: "0,0,0";
+$select-background-color: transparent;
+$select-border-color: unquote("rgba(#{$color-black}, 0.12)") !default;
+$select-font-size: 16px;
+$select-color: unquote("rgba(#{$color-black}, 0.26)") !default;
+$select-padding: 4px;
+
+/* ==========  Select Field ========== */
+
+//text_field
+
+.text-area{
+  resize:none;
+}
+
+/* Style Select Field */
+select {
+  color: black;
+  font-family: inherit;
+  background-color: transparent;
+  width: 100%;
+  padding: $select-padding 0;
+  font-size: $select-font-size;
+  color: $select-color;
+  border: none;
+  border-bottom: 1px solid #00796b ;
+}
+
+/* Remove focus */
+select:focus {
+  outline: none}
+
+select:hover{
+  color: #00796b;
+  background: white;
+  background-color: white;
+  border-color: #00796b;
+  overflow: visible;
+
+}
+
+
+/* Use custom arrow */
+.mdl-selectfield select {appearance: none}
+.mdl-selectfield {
+  font-family: 'Roboto','Helvetica','Arial',sans-serif;
+  position: relative;
+  background-color: transparent;
+
+    &:after {
+        position: absolute;
+        top: 0.75em;
+        right: 0.5em;
+        /* Styling the down arrow */
+        width: 0;
+        height: 0;
+        padding: 0;
+        content: '';
+        border-left: .25em solid transparent;
+        border-right: .25em solid transparent;
+        border-top: .375em solid $select-border-color;
+        pointer-events: none;
+    }
+}
+/* Hide label */
+.mdl-selectfield label {display: none;}
+
+.demo {
+  width: 500px;
+  padding: 20px;
+  margin: 0 auto;
+  margin-top: -2em;
+  right: 0;
+  left: 0;
+}

@@ -2,21 +2,24 @@
 
 <h1 class ="center-text">Actores</h1>
 
-<table class="striped">
+<table class="table table-striped">
   <thead>
     <tr>
+      <th>#</th>
       <th>Nombre</th>
       <th>Fecha de nacimiento</th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
-
   <tbody>
-    <% @actors.each do |actor| %>
+    <% @actors.each_with_index do |actor, index| %>
       <tr>
-        <td><%= link_to actor.name, actor, class: "black-text" %></td>
+        <th scope="row"><%= index+1 %></th>
+        <td><strong><%=  actor.name%></strong></td>
         <td><%= actor.birth_date %> </td>
-        <td><%= link_to 'Editar', edit_actor_path(actor), class: "black-text" %></td>
-        <td><%= link_to 'Eliminar', actor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Editar', edit_actor_path(actor)%></td>
+        <td><%= link_to 'Eliminar', actor, method: :delete, data: { confirm: 'Seguro que quieres eliminar esta categoria?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +27,4 @@
 
 <br>
 
-<%= link_to 'Agregar actor', new_actor_path,  class: "waves-effect waves-light btn " %>
+<%= link_to 'Agregar actor', new_actor_path,  type:"button", class:"btn btn-outline-success" %>
