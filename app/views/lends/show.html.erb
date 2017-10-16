@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @lend.value %>
+</p>
+
+<p>
+  <strong>Loan date:</strong>
+  <%= @lend.loan_date %>
+</p>
+
+<p>
+  <strong>Deliver date:</strong>
+  <%= @lend.deliver_date %>
+</p>
+
+<p>
+  <strong>Movie:</strong>
+  <%= @lend.movie %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @lend.user %>
+</p>
+
+<%= link_to 'Edit', edit_lend_path(@lend) %> |
+<%= link_to 'Back', lends_path %>

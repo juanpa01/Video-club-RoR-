@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  value: 
+  loan_date: 2017-10-15
+  deliver_date: 2017-10-15
+  movie: one
+  user: one
+
+two:
+  value: 
+  loan_date: 2017-10-15
+  deliver_date: 2017-10-15
+  movie: two
+  user: two
