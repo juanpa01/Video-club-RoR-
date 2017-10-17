@@ -1,4 +1,32 @@
-<%= form_with(model: lend, local: true) do |form| %>
+<div class="container">
+  <div class="demo">
+<%= form_for(@lend)  do |form| %>
+
+  <div class="field">
+    <%= form.label :Valor %><br>
+    <%= form.text_field :value, id: :lend_value,type: "text", class: "form-control", id: "form1", type: "text" %>
+  </div><br>
+
+  <div class="field">
+    <%= form.label :Fecha_del_prestamo %> <br>
+    <%= form.date_field :loan_date,start_year: 1990, id: :lend_loan_date, class: "datepicker" %>
+  </div>
+  <br>
+  <div class="field">
+    <%= form.label :Fecha_de_entrega %> <br>
+    <%= form.date_field :deliver_date,start_year: 1990, id: :lend_deliver_date, class: "datepicker" %>
+  </div>
+  <br>
+  <label>Pelicula: </label><br>
+  <div class="mdl-selectfield">
+    <%= collection_select(:lend, :movie_id, Movie.all, :id, :title, {:multiple => false})%><br><br>
+  </div>
+
+  <label>Usuario: </label><br>
+  <div class="mdl-selectfield">
+    <%= collection_select(:lend, :user_id, User.all, :id, :name, {:multiple => false})%><br><br>
+  </div>
+
   <% if lend.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(lend.errors.count, "error") %> prohibited this lend from being saved:</h2>
@@ -11,32 +39,9 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :value %>
-    <%= form.text_field :value, id: :lend_value %>
-  </div>
-
-  <div class="field">
-    <%= form.label :loan_date %>
-    <%= form.date_select :loan_date, id: :lend_loan_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :deliver_date %>
-    <%= form.date_select :deliver_date, id: :lend_deliver_date %>
-  </div>
-
-  <div class="field">
-    <%= form.label :movie_id %>
-    <%= form.text_field :movie_id, id: :lend_movie_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id, id: :lend_user_id %>
-  </div>
-
   <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>
+  </div>
+</div>
